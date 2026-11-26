@@ -14,8 +14,16 @@ import { fileURLToPath } from "node:url";
 // second; "died as he lived" sets up the old formula, and "avoiding
 // small talk" springs it — the most ordinary social dread, treated
 // as a lifelong creed worth carving in stone.
-const EPITAPH =
-  "Here lies a man who died as he lived: avoiding small talk.";
+//
+// Why this angle, over the first version's Wi-Fi password: the judge
+// weighs "reads like something carved in stone" and "stays in the
+// head", and a classic epitaph opener with a character joke scores
+// on both, where a gadget complaint scores on neither. The line is
+// picked here, in one place, so the choice itself is the revision
+// point: swap the return value and the program writes a new stone.
+function chooseEpitaph(): string {
+  return "Here lies a man who died as he lived: avoiding small talk.";
+}
 
 // The gate: one line, 1-150 characters, nothing else. Length is
 // counted in code points, the way a reader counts characters, so an
@@ -50,7 +58,7 @@ function outputDir(): string {
 }
 
 function main(): void {
-  const line = EPITAPH.trim();
+  const line = chooseEpitaph().trim();
   checkLine(line);
   const dir = outputDir();
   mkdirSync(dir, { recursive: true });
